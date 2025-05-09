@@ -1,0 +1,240 @@
+label[for="nav-toggle"] {
+	opacity: 0;
+	font-size: 0;
+}
+
+@include limbo-max {
+	.header__top,
+	.header__top-ham,
+	.button-desktop {
+		display: none;
+	}
+
+	.header__container {
+		@include flex-between;
+		align-items: center;
+	}
+
+	.header-main {
+		position: sticky;
+		top: 0;
+		background-color: var(--white);
+		z-index: 999;
+		width: 100%;
+		box-sizing: border-box;
+		@include bs;
+
+		.site-logo {
+			width: 130px;
+			width: 190px;
+			max-width: 60%;
+			margin-block: 0.5rem;
+			z-index: 20;
+			transition: var(--st);
+
+			img {
+				height: 100%;
+				object-fit: contain;
+				width: 100%;
+			}
+		}
+
+		.main-navigation_wrap {
+			position: absolute;
+			height: 95svh;
+			overflow: auto;
+			background-color: var(--white);
+			left: 0;
+			top: 100%;
+			z-index: 9;
+			width: 100%;
+			display: none;
+			border-top: 1px solid #e1e1e1;
+			padding: 2rem;
+
+			#primary-menu {
+				margin: 0;
+				padding: 0;
+
+				li {
+					position: relative;
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					flex-wrap: wrap;
+
+					a {
+						padding: 2rem 1.5rem;
+						padding-left: 0;
+						color: var(--color-2);
+						font-size: 18px;
+						width: 100%;
+						font-weight: 600;
+						letter-spacing: 1px;
+					}
+
+					&.current-menu-item,
+					&.current-menu-parent,
+					&.current-menu-ancestor {
+						> a,
+						> .sub-menu-trigger svg {
+							color: var(--color-5) !important;
+						}
+					}
+
+					&.menu-item-has-children {
+						> a {
+							width: calc(100% - 55px);
+						}
+					}
+
+					.sub-menu-trigger {
+						svg {
+							width: 22px;
+							height: 22px;
+							transition: var(--st);
+							color: var(--color-2);
+						}
+					}
+
+					> .sub-menu {
+						width: 100%;
+						margin-left: 2rem;
+						margin-bottom: 1rem;
+						display: none;
+
+						li {
+							display: flex;
+							flex-wrap: wrap;
+							align-items: center;
+						}
+
+						.sub-menu-trigger {
+							flex: 1;
+						}
+
+						a {
+							font-size: 17px;
+							color: var(--color-2);
+							text-transform: capitalize;
+							font-weight: 500;
+							padding: 1.5rem;
+							line-height: 1.3;
+							font-weight: 600;
+						}
+					}
+
+					&.sub-menu-open {
+						> .sub-menu-trigger svg {
+							transform: rotate3d(1, 0, 0, 180deg);
+						}
+					}
+				}
+			}
+		}
+
+		.mobile-header__info {
+			margin-top: 3rem;
+
+			.header__info {
+				gap: 1rem;
+				display: grid;
+				margin-block: 3rem;
+
+				a {
+					display: flex;
+					align-items: center;
+					gap: 7px;
+					padding: 1rem;
+
+					.contact-svg {
+						color: var(--color-4);
+
+						svg {
+							width: 23px;
+							height: 23px;
+						}
+					}
+
+					.contact-text {
+						span {
+							color: var(--color-2);
+							font-weight: 700;
+							font-size: 12px;
+						}
+
+						p {
+							font-size: 16px;
+							font-weight: 500;
+							color: var(--color-2);
+							margin-top: 3px;
+							line-height: 1.2;
+						}
+					}
+				}
+			}
+		}
+
+		.button-mobile {
+			margin-block: 3rem 8rem;
+		}
+
+		.btn {
+			width: 100%;
+			display: flex;
+			justify-content: center;
+		}
+	}
+
+	/* Nav Trigger Start */
+	.hamburger {
+		height: 30px;
+		width: 30px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+		> div {
+			position: relative;
+			top: 0;
+			left: 0;
+			background: var(--color-5);
+			height: 2px;
+			width: 100%;
+			transition: all 0.4s ease;
+			&::before,
+			&:after {
+				content: "";
+				position: absolute;
+				top: -10px;
+				background: var(--color-5);
+				width: 100%;
+				height: 2px;
+				transition: all 0.4s ease;
+			}
+			&:after {
+				top: 10px;
+			}
+		}
+	}
+	.menu-toggle {
+		opacity: 0;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		z-index: 99;
+	}
+	.menu-toggle:checked + div {
+		background: rgba(0, 0, 0, 0);
+		&:before {
+			top: 0;
+			transform: rotate(45deg);
+			background: var(--color-5);
+		}
+		&:after {
+			top: 0;
+			transform: rotate(135deg);
+			background: var(--color-5);
+		}
+	}
+}

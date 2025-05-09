@@ -1,0 +1,90 @@
+.st-services {
+	position: relative;
+	// background-image: url("../images/bg-bw.jpg");
+	// background-repeat: no-repeat;
+	// background-position: center;
+	// background-attachment: fixed;
+
+	.st-services__all {
+		display: grid;
+		gap: 5rem 3rem;
+	}
+
+	.st-service {
+		@include flex-col;
+		transition: var(--st);
+		position: relative;
+		z-index: 1;
+		@include bs;
+		background: rgba(255, 255, 255, 0.719);
+
+		.st-service__hover {
+			&:hover {
+				.st-service__image {
+					opacity: 0.8;
+				}
+
+				.btn {
+					background: var(--white);
+					color: var(--color-5);
+
+					&:after {
+						background: var(--color-5);
+					}
+				}
+			}
+		}
+
+		.st-service__link {
+			@include bg_div;
+			z-index: 2;
+		}
+
+		.st-service__image {
+			position: relative;
+			overflow: hidden;
+			min-height: 270px;
+			transition: var(--st);
+			clip-path: polygon(100% 0, 100% 86%, 90% 100%, 0 100%, 0 0);
+
+			img {
+				height: 100%;
+				vertical-align: bottom;
+				aspect-ratio: 5/3;
+			}
+		}
+
+		.st-service__text {
+			@include flex-col;
+			padding: 3rem;
+			flex: 1;
+		}
+
+		.st-service__title {
+			font-size: 21px;
+			margin-bottom: 2rem;
+			font-weight: 700;
+			line-height: 1.2;
+			color: var(--color-5);
+			font-family: $font-secondary;
+
+			@include limbo-min {
+				font-size: 23px;
+			}
+		}
+
+		.st-service__desc {
+			line-height: 1.4;
+			font-size: 18px;
+			font-weight: 500;
+			position: relative;
+			z-index: 1;
+			flex: 1;
+			color: var(--color-2);
+		}
+
+		.btn {
+			margin-top: 4rem;
+		}
+	}
+}

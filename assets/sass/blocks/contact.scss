@@ -1,0 +1,246 @@
+.st-contact__info {
+	display: grid;
+	gap: 2rem;
+	margin-block: 10rem 10rem;
+
+	@include limbo-min {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	@include desk-min {
+		margin-block: 10rem 12rem;
+		grid-template-columns: 1fr 1.5fr;
+	}
+
+	.st-contact__info-title {
+		margin-bottom: 3rem;
+
+		@media (max-width: 500px) {
+			font-size: 9.5vw;
+		}
+	}
+
+	.st-contact__info-item {
+		position: relative;
+		padding: 3rem 2rem;
+		box-shadow: 0px 10px 60px rgba(15, 53, 103, 0.1);
+		transition: var(--st);
+		display: flex;
+		align-items: center;
+		gap: 2rem;
+
+		@include mob-only {
+			padding-inline: 0;
+		}
+
+		&:not(:last-child) {
+			margin-bottom: 2rem;
+		}
+
+		&:first-of-type {
+			.st-contact__icon {
+				background: var(--color-4);
+			}
+		}
+
+		&:last-of-type {
+			.st-contact__icon {
+				background: var(--color-5);
+			}
+		}
+
+		&:hover {
+			box-shadow: unset;
+		}
+
+		&.email {
+			span {
+				white-space: nowrap;
+			}
+		}
+
+		.st-contact__icon {
+			@include flex-center;
+			width: 60px;
+			height: 60px;
+			background: var(--color-2);
+			flex: 0 0 auto;
+			clip-path: polygon(100% 0, 100% 64%, 74% 100%, 0 100%, 0 0);
+
+			svg {
+				color: var(--white);
+				width: 35px;
+				height: 35px;
+				transition: var(--st);
+			}
+
+			@include limbo-min {
+				width: 70px;
+				height: 70px;
+
+				svg {
+					width: 42px;
+					height: 42px;
+				}
+			}
+
+			@include mob-only {
+				width: 45px;
+				height: 45px;
+
+				svg {
+					width: 22px;
+					height: 22px;
+				}
+			}
+		}
+
+		.st-contact__info-wrap {
+			p {
+				font-size: 18px;
+				font-weight: 600;
+				margin-bottom: 1rem;
+				color: var(--color-2);
+			}
+
+			span {
+				font-size: 16px;
+				font-weight: 500;
+				color: var(--color-2);
+			}
+		}
+	}
+}
+
+.st-contact__map {
+	border: 1px solid var(--color-1);
+
+	iframe {
+		width: 100%;
+		height: 100%;
+
+		@include tab-max {
+			height: 420px;
+		}
+	}
+}
+
+.st-contact__form {
+	margin-block: 10rem 10rem;
+
+	@include desk-min {
+		margin-block: 10rem 12rem;
+	}
+
+	.st-contact__wrapper {
+		box-shadow: 0px 10px 60px rgba(15, 53, 103, 0.1);
+		padding: 4rem;
+	}
+
+	.b-title {
+		@include limbo-min {
+			text-align: left;
+			align-items: flex-start;
+		}
+	}
+
+	// .st-contact__image {
+	// 	border: 2px solid var(--color-1);
+
+	// 	@include limbo-min {
+	// 		clip-path: polygon(100% 0, 100% 90%, 90% 100%, 0 100%, 0 0);
+	// 	}
+	// }
+
+	.st-contact__form-shortcode {
+		position: relative;
+
+		div.wpforms-container-full:not(:empty) {
+			margin: 0;
+			form {
+				@include tab-max {
+					margin-bottom: 5rem;
+				}
+				.wpforms-field-container {
+					.wpforms-field {
+						padding-block: 0 20px !important;
+
+						.wpforms-field-label {
+							color: var(--color-4);
+							font-size: 14px;
+							font-weight: 600;
+						}
+
+						.wpforms-required-label {
+							color: var(--color-4);
+						}
+
+						input,
+						textarea {
+							border-radius: 0;
+							background: var(--white);
+							border: none;
+							box-shadow: 0px 10px 60px rgba(15, 53, 103, 0.1);
+
+							@include tab-max {
+								box-shadow: unset;
+								border: 1px solid rgb(231, 231, 231);
+							}
+
+							&::placeholder {
+								color: #000;
+							}
+						}
+
+						select {
+							border-radius: 0;
+							border: none;
+							box-shadow: 0px 10px 60px rgba(15, 53, 103, 0.1);
+
+							@include tab-max {
+								box-shadow: unset;
+								border: 1px solid rgb(231, 231, 231);
+							}
+
+							&::placeholder {
+								color: #000;
+							}
+						}
+
+						input {
+							height: 45px;
+						}
+					}
+				}
+			}
+
+			.wpforms-submit-container {
+				button[type="submit"].wpforms-submit {
+					@include btn-2;
+					min-width: 210px;
+					text-align: center;
+					justify-content: center;
+					height: 50px;
+
+					&:active,
+					&:focus {
+						border: none;
+
+						&:after {
+							border: none;
+						}
+					}
+
+					&:hover {
+						background: var(--white) !important;
+					}
+
+					@include tab-max {
+						margin-inline: auto;
+						height: 46px;
+					}
+				}
+			}
+		}
+	}
+}

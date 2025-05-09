@@ -1,0 +1,224 @@
+.before-after {
+	position: relative;
+
+	.b-title {
+		margin-bottom: 4rem;
+	}
+
+	#interior {
+		margin-bottom: 5rem;
+		border-bottom: 1px solid var(--color-4);
+	}
+
+	.before-after__anchor-links {
+		display: flex;
+		gap: 7px;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 6rem;
+
+		a {
+			color: var(--color-4);
+			text-decoration: underline;
+			transition: var(--st);
+
+			&:hover {
+				opacity: 0.7;
+			}
+		}
+	}
+
+	.before-after__projects-type {
+		margin: 0;
+		display: flex;
+		gap: 7px;
+		align-items: center;
+
+		svg {
+			position: relative;
+			bottom: -3px;
+			color: var(--color-4);
+		}
+	}
+
+	.st-project {
+		padding-block: 5rem;
+
+		&:nth-child(odd) {
+			background: #f2f2f2;
+		}
+
+		.st-project__title {
+			font-weight: 700;
+			margin-bottom: 1rem;
+			line-height: 1.2;
+			font-size: 20px;
+			color: var(--color-4);
+
+			@include limbo-min {
+				font-size: 23px;
+			}
+		}
+
+		.st-project__desc {
+			line-height: 1.3;
+			font-size: 17px;
+
+			@include limbo-min {
+				width: 80%;
+				font-size: 19px;
+			}
+		}
+
+		.st-project__images {
+			margin-top: 3rem;
+
+			&.st-project__images--separate {
+				@include flex-col;
+				gap: 5rem;
+
+				@include limbo-min {
+					flex-direction: row;
+					gap: 2rem;
+				}
+
+				@include flex-col;
+				flex: 1;
+
+				.st-service__image {
+					flex: 1;
+				}
+
+				.image-wrap {
+					@include flex-col;
+					flex: 1;
+
+					.main-carousel {
+						flex: 1;
+					}
+				}
+			}
+
+			.images-wrap_pair {
+				@include flex-col;
+				gap: 5rem;
+
+				@include tab-min {
+					flex-direction: row;
+					gap: 2rem;
+				}
+
+				> div {
+					flex: 1;
+				}
+			}
+
+			span {
+				display: inline-block;
+				margin-top: 15px;
+				font-weight: 600;
+				text-transform: uppercase;
+				letter-spacing: 1px;
+				font-size: 13px;
+				padding: 0.5rem 1rem;
+				background: var(--color-5);
+				color: var(--white);
+				border-radius: 2px;
+				align-self: flex-start;
+			}
+		}
+	}
+
+	/*! Flickity v2.3.0
+https://flickity.metafizzy.co
+---------------------------------------------- */
+	.flickity-enabled {
+		position: relative;
+	}
+	.flickity-enabled:focus {
+		outline: 0;
+	}
+	.flickity-viewport {
+		overflow: hidden;
+		position: relative;
+		height: 100%;
+	}
+	.flickity-slider {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+	.flickity-enabled.is-draggable {
+		-webkit-tap-highlight-color: transparent;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+	.flickity-enabled.is-draggable .flickity-viewport {
+		cursor: move;
+		cursor: -webkit-grab;
+		cursor: grab;
+	}
+	.flickity-enabled.is-draggable .flickity-viewport.is-pointer-down {
+		cursor: -webkit-grabbing;
+		cursor: grabbing;
+	}
+	.flickity-button {
+		position: absolute;
+		background: var(--color-3);
+		border: none;
+		color: var(--white);
+		transition: var(--st);
+	}
+	.flickity-button:hover {
+		background: var(--color-5);
+		cursor: pointer;
+	}
+
+	.flickity-button:disabled {
+		display: none;
+	}
+	.flickity-button-icon {
+		fill: currentColor;
+	}
+	.flickity-prev-next-button {
+		top: 50%;
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+		transform: translateY(-50%);
+		@include flex-center;
+	}
+	.flickity-prev-next-button.previous {
+		left: 10px;
+	}
+	.flickity-prev-next-button.next {
+		right: 10px;
+	}
+
+	.flickity-prev-next-button .flickity-button-icon {
+		width: 70%;
+		height: 70%;
+	}
+
+	.carousel-cell {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.carousel.is-fullscreen .carousel-cell {
+		height: 100%;
+	}
+
+	.carousel-cell img {
+		display: block;
+		max-height: 100%;
+	}
+
+	.flickity-viewport {
+		// height: 100% !important;
+	}
+}

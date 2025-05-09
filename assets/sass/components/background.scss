@@ -1,0 +1,23 @@
+.block_bg {
+	@include bg_div;
+
+	.mob_bg {
+		@include desk-min {
+			display: none;
+
+			&:only-child {
+				display: block;
+			}
+		}
+	}
+
+	.desk_bg {
+		@include limbo-max {
+			display: none;
+
+			&:only-child {
+				display: block;
+			}
+		}
+	}
+}

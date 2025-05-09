@@ -1,0 +1,105 @@
+// Buttons
+.btns {
+	display: flex;
+	gap: 1rem 2rem;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+@mixin btn {
+	padding: 15px 20px;
+	font-family: $font-secondary, sans-serif;
+	width: fit-content;
+	min-width: 150px;
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	box-sizing: border-box;
+	transition: var(--st);
+	position: relative;
+	overflow: hidden;
+	font-size: 17px;
+	background: var(--color-5);
+	color: var(--white);
+	line-height: 1;
+	text-align: center;
+	clip-path: polygon(100% 0, 100% 60%, 90% 100%, 0 100%, 0 0);
+	font-weight: 600;
+
+	&::after {
+		content: "";
+		-webkit-mask: url('data:image/svg+xml; utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="17" height="17" viewBox="0 -0.5 17 17" version="1.1" class="si-glyph si-glyph-two-arrow-right" fill="currentColor" transform="rotate(0)"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g transform="translate(1.000000, 3.000000)" fill="currentColor"> <path d="M11.83,4.999 L8.086,10 L12.025,10 L15.969,4.999 L11.927,0.03 L8.009,0.03 L7.998,0.041 L11.83,4.999 Z" class="si-glyph-fill"> </path> <path d="M4.047,4.999 L0.096,10 L4.034,10 L8,4.999 L3.935,0.03 L0.018,0.03 L0.008,0.041 L4.047,4.999 Z" class="si-glyph-fill"> </path> </g> </g></svg>');
+		background: var(--white);
+		width: 17px;
+		height: 17px;
+		display: inline-block;
+		-webkit-mask-size: cover;
+		mask-size: cover;
+		position: relative;
+		transition: var(--st);
+		bottom: -1px;
+	}
+
+	&:hover {
+		background: var(--white);
+
+		color: var(--color-5);
+
+		&:after {
+			background: var(--color-5);
+		}
+	}
+}
+
+@mixin btn-1 {
+	@include btn;
+}
+
+@mixin btn-2 {
+	@include btn;
+	background-color: var(--color-4);
+
+	&:after {
+		background: var(--white);
+	}
+
+	&:hover {
+		color: var(--color-4);
+		background: var(--white);
+
+		&:after {
+			background: var(--color-4);
+		}
+	}
+}
+
+@mixin btn-3 {
+	@include btn;
+	background-color: var(--white);
+	color: var(--color-5);
+
+	&:after {
+		background: var(--color-5);
+	}
+
+	&:hover {
+		background: var(--white);
+		color: var(--color-2);
+
+		&:after {
+			background: var(--color-2);
+		}
+	}
+}
+
+.btn-1 {
+	@include btn-1;
+}
+
+.btn-2 {
+	@include btn-2;
+}
+
+.btn-3 {
+	@include btn-3;
+}

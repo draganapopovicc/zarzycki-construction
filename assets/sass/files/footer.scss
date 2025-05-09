@@ -1,0 +1,166 @@
+.site-footer {
+	color: var(--white);
+
+	.footer__logo {
+		width: 250px;
+		margin-bottom: 3rem;
+
+		@include tab-max {
+			margin-inline: auto;
+		}
+	}
+
+	.footer__top {
+		background: var(--color-2);
+
+		.footer__wrapper {
+			gap: 7rem;
+			display: grid;
+
+			@include tab-max {
+				justify-content: center;
+				gap: 7rem 5rem;
+			}
+
+			@include limbo-min {
+				display: flex;
+				align-items: center;
+				gap: 10rem 6rem;
+
+				.footer__box-about {
+					flex: 1;
+					max-width: 500px;
+				}
+			}
+
+			@include desk-min {
+				flex-direction: column;
+
+				.footer__box-about {
+					max-width: 700px;
+				}
+
+				.footer__info-box {
+					display: grid;
+					grid-template-columns: 1fr 1fr 1fr;
+				}
+			}
+
+			@include md-desk-min {
+				flex-direction: row;
+			}
+		}
+	}
+
+	.footer__info-box {
+		@include flex-col;
+		gap: 4rem;
+	}
+
+	.footer__info-block {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		flex: 0 0 auto;
+
+		&:hover {
+			.contact-svg {
+				background: var(--white);
+				color: var(--color-5);
+			}
+		}
+
+		.contact-svg {
+			@include flex-center;
+			height: 70px;
+			width: 70px;
+			background: var(--color-5);
+			color: var(--white);
+			transition: var(--st);
+			clip-path: polygon(100% 0, 100% 64%, 74% 100%, 0 100%, 0 0);
+			flex: 0 0 auto;
+
+			svg {
+				width: 36px;
+				height: 36px;
+			}
+
+			@include tab-max {
+				height: 55px;
+				width: 55px;
+
+				svg {
+					width: 27px;
+					height: 27px;
+				}
+			}
+
+			@include mob-only {
+				height: 40px;
+				width: 40px;
+
+				svg {
+					width: 20px;
+					height: 20px;
+				}
+			}
+		}
+
+		.contact-text {
+			span {
+				color: var(--white);
+				font-weight: 600;
+				font-size: 16px;
+
+				@include mob-only {
+					font-size: 15px;
+				}
+			}
+
+			p {
+				font-size: 17px;
+				font-weight: 500;
+				color: var(--white);
+				line-height: 1;
+				margin-top: 5px;
+				line-height: 1.2;
+
+				@include desk-min {
+					font-size: 17px;
+				}
+			}
+		}
+	}
+
+	.footer__box-about {
+		position: relative;
+		background: var(--white);
+		padding: 2rem 3rem;
+		clip-path: polygon(100% 0, 100% 78%, 88% 100%, 0 100%, 0 0);
+
+		.footer__box-description {
+			font-size: 17px;
+			color: var(--color-2);
+
+			p {
+				line-height: 1.4;
+				font-weight: 700;
+
+				&:not(:last-child) {
+					margin-bottom: 2rem;
+				}
+			}
+		}
+	}
+
+	.footer__bottom {
+		text-align: center;
+		background: var(--color-2);
+		font-weight: 600;
+		color: var(--white);
+		font-size: 15px;
+		padding-block: 1.5rem;
+		line-height: 1.4;
+		border-top: 2px solid var(--color-1);
+	}
+}

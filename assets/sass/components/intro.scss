@@ -1,0 +1,77 @@
+.b-title {
+	@include flex-col;
+	align-items: flex-start;
+	gap: 3rem;
+
+	&.b-title-section {
+		margin-bottom: 8rem;
+		align-items: center;
+		text-align: center;
+
+		.b-title__prefix {
+			color: var(--color-5);
+		}
+
+		.b-title__main {
+			color: var(--dark);
+		}
+
+		.b-title__intro {
+			max-width: 850px;
+		}
+	}
+
+	.b-title__main {
+		font-weight: 700;
+		max-width: 1000px;
+		letter-spacing: 1px;
+		margin-bottom: 0;
+		line-height: 1;
+		color: var(--white);
+
+		@media (max-width: 500px) {
+			font-size: 9.5vw;
+		}
+	}
+
+	.b-title__prefix {
+		font-size: 18px;
+		color: var(--white);
+		font-weight: 600;
+		letter-spacing: 1px;
+		display: flex;
+		align-items: center;
+		gap: 7px;
+
+		svg {
+			width: 20px;
+			height: 20px;
+		}
+
+		@include limbo-min {
+			font-size: 20px;
+
+			svg {
+				width: 25px;
+				height: 25px;
+			}
+		}
+	}
+
+	.b-title__intro {
+		line-height: 1.6;
+		font-size: 17px;
+		font-weight: 600;
+		color: var(--color-2);
+
+		@include limbo-min {
+			font-size: 19px;
+		}
+
+		p {
+			&:not(:last-child) {
+				margin-bottom: 1rem;
+			}
+		}
+	}
+}
